@@ -1,6 +1,7 @@
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
+import path from 'path';
 
 import notes from './database/notes.json';
 
@@ -22,11 +23,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(express.json())
 //app.use(express.urlencoded({extended: true}))
 //
+
 app.use(express.static("public"));
 
-app.get("/", (req, res) =>
-  res.sendFile(path.join(__dirname), "/public/index.html")
-);
+app.get("/", function (req, res) {
+  res.sendFile(path.resolve("public", "index.html"));
+});
+
+app.get("/notes", function (req, res) {
+  res.sendFile(path.resolve("public", "notes.html"));
+});
 
 function findById(id, notesArray) {
   console.log("id", id);
