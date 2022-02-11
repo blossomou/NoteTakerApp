@@ -4,26 +4,12 @@ import express from 'express';
 import { readFile } from 'fs';
 import path from 'path';
 
-//import notes from './database/notes.json';
-
-//another way of importing
-// const express = require("express");
-// const path = require("path");
-// const bodyParser = require("body-parser");
-// const cors = require("cors");
-// const { notes } = require("./database/notes.json");
-
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-//
-//app.use(express.json())
-//app.use(express.urlencoded({extended: true}))
-//
 
 const readNotes = () => {
   return new Promise((resolve, reject) => {
@@ -49,17 +35,7 @@ app.get("/notes", function (req, res) {
 });
 
 function findById(id, notesArray) {
-  console.log("id", id);
   let result = notesArray.filter((note) => note.id === parseInt(id))[0];
-
-  //another way
-  //let result = [];
-  //   for (let i = 0; i < notesArray.length; i++) {
-  //     if (notesArray[i].id === parseInt(id)) {
-  //       result.push(notesArray[i]);
-  //     }
-  //   }
-
   return result;
 }
 
