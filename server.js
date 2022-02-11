@@ -1,15 +1,15 @@
-// import bodyParser from 'body-parser';
-// import cors from 'cors';
-// import express from 'express';
-// import { notes } from './database/notes.json';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import express from 'express';
 
-const express = require("express");
-const path = require("path");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const { notes } = require("./database/notes.json");
+import notes from './database/notes.json';
 
-//const { notes } = require("./database/notes");
+//another way of importing
+// const express = require("express");
+// const path = require("path");
+// const bodyParser = require("body-parser");
+// const cors = require("cors");
+// const { notes } = require("./database/notes.json");
 
 const PORT = process.env.PORT || 3001;
 
