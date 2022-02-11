@@ -29,7 +29,7 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
-  fetch(`http://localhost:${PORT}/api/notes`, {
+  fetch(`/api/notes`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
