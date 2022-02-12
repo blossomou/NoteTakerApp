@@ -75,7 +75,7 @@ const renderActiveNote = () => {
 
 const handleNoteSave = () => {
   const newNote = {
-    title: noteTitle.value,
+    title: noteTitle.value.length > 0 ? noteTitle.value : "Untitled page",
     text: noteText.value,
   };
   saveNote(newNote).then(() => {
@@ -117,9 +117,11 @@ const handleNewNoteView = (e) => {
 
 const handleRenderSaveBtn = () => {
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
-    hide(saveNoteBtn);
-  } else {
     show(saveNoteBtn);
+  } else if (noteTitle.value.length > 0 || noteText.value.length > 0) {
+    show(saveNoteBtn);
+  } else {
+    hide(saveNoteBtn);
   }
 };
 
